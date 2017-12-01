@@ -20,7 +20,7 @@ let getComponent = (component) => {
     );
   }
 };
-export const authRoutes = [
+export default [
   {
     name: 'Login',
     path: '/user/login',
@@ -40,23 +40,5 @@ export const authRoutes = [
     name: 'UserActive',
     path: '/user/active',
     component: getComponent(UserActive)
-  }
-];
-
-export const baseRoutes = [
-  {
-    name: 'Dashboard Home',
-    path: '/',
-    component: getComponent(Dashboard)
-  },
-  {
-    name: 'Dashboard',
-    path: '/dashboard',
-    component: getComponent(Dashboard)
-  },
-  {
-    name: 'Test',
-    path: '/test',
-    component: getComponent(Test)
   }
 ];

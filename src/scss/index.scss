@@ -1,4 +1,5 @@
 @import "var";
+@import "reset";
 
 ::-webkit-scrollbar-track { //轨道
   -webkit-box-shadow: inset 0 0 2.5px rgba(0, 0, 0, 0.3);
@@ -10,7 +11,7 @@
   -webkit-box-shadow: inset 0 0 2.5px rgba(0, 0, 0, .3);
   box-shadow: inset 0 0 2.5px rgba(0, 0, 0, .3);
   border-radius: 2.5px;
-  background-color: #108ee9;
+  background-color: $theme-color;
   opacity: .7;
   transition: opacity ease-in-out 200ms;
 }
@@ -22,8 +23,13 @@
   height: 2px;
   .bar {
     height: 100%;
-    background-color: #108ee9;
+    background-color: $theme-color-light;
   }
+}
+
+.block-btn{
+  display: block;
+  width: 100%;
 }
 
 #app {

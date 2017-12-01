@@ -1,2 +1,12 @@
-$background-color: #f9f9f9;
-$theme-color: #404040;
+$green-normal: #006741;
+$green-high: #00432a;
+$green-light: #009a61;
+$grey: #808B87;
+$grey-light: #999;
+
+$background-color: #fff;
+$background-color-high: rgba(1, 126, 102, 0.08);
+$theme-color: $green-normal;
+$theme-color-high: $green-high;
+$theme-color-light: $green-light;
+$text-color-light: $grey-light;

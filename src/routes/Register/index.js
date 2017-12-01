@@ -3,40 +3,25 @@
  */
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import {Form, Input, Button, Select, Row, Col, Popover, Progress} from 'antd';
+import {Form, Input, Button, Row, Col, Icon, Checkbox} from 'antd';
 import md5 from 'md5';
 import http from 'localUtil/httpUtil';
 
 const FormItem = Form.Item;
-
-const passwordStatusMap = {
-  ok: <p>强度：强</p>,
-  pass: <p>强度：中</p>,
-  pool: <p>强度：太短</p>
-};
-
-const passwordProgressMap = {
-  ok: 'success',
-  pass: 'normal',
-  pool: 'exception'
-};
 
 // 不在全局注册东西
 class Register extends Component {
   state = {
     confirmDirty: false,
     visible: false,
-    help: ''
+    help: '',
+    agreeCheck: false
   };
 
-  getPasswordStatus = (value) => {
-    if (value && value.length > 9) {
-      return 'ok';
-    }
-    if (value && value.length > 5) {
-      return 'pass';
-    }
-    return 'pool';
+  agreeCheckChange = (e) => {
+    this.setState({
+      agreeCheck: e.target.checked
+    });
   };
 
   handleSubmit = (e) => {
@@ -93,27 +78,12 @@ class Register extends Component {
     }
   };
 
-  renderPasswordProgress = () => {
-    const {form} = this.props;
-    const value = form.getFieldValue('password');
-    const passwordStatus = this.getPasswordStatus(value);
-    return value && value.length
-      ? <div>
-        <Progress
-          status={passwordProgressMap[passwordStatus]}
-          strokeWidth={6}
-          percent={value.length * 10 > 100 ? 100 : value.length * 10}
-          showInfo={false}
-        />
-      </div> : null;
-  };
-
   render() {
     const {form} = this.props;
     const {getFieldDecorator} = form;
     return (
       <div className="register-wrap">
-        <h3>注册</h3>
+        <h3 className="register-title">欢迎加入</h3>
         <Form onSubmit={this.handleSubmit}>
           <FormItem>
             {getFieldDecorator('userName', {
@@ -121,7 +91,7 @@ class Register extends Component {
                 required: true, message: '请输入用户名！'
               }]
             })(
-              <Input size="large" placeholder="用户名"/>
+              <Input prefix={<Icon type="user"/>} size="large" placeholder="用户名"/>
             )}
           </FormItem>
           <FormItem>
@@ -132,34 +102,22 @@ class Register extends Component {
                 type: 'email', message: '邮箱地址格式错误！'
               }]
             })(
-              <Input size="large" placeholder="邮箱"/>
+              <Input prefix={<Icon type="mail"/>} size="large" placeholder="邮箱"/>
             )}
           </FormItem>
           <FormItem help={this.state.help}>
-            <Popover
-              content={
-                <div style={{padding: '4px 0'}}>
-                  {passwordStatusMap[this.getPasswordStatus()]}
-                  {this.renderPasswordProgress()}
-                  <p style={{marginTop: 10}}>请至少输入 6 个字符。请不要使用容易被猜到的密码。</p>
-                </div>
-              }
-              overlayStyle={{width: 240}}
-              placement="right"
-              visible={this.state.visible}
-            >
-              {getFieldDecorator('password', {
-                rules: [{
-                  validator: this.checkPassword
-                }]
-              })(
-                <Input
-                  size="large"
-                  type="password"
-                  placeholder="至少6位密码，区分大小写"
-                />
-              )}
-            </Popover>
+            {getFieldDecorator('password', {
+              rules: [{
+                validator: this.checkPassword
+              }]
+            })(
+              <Input
+                prefix={<Icon type="lock"/>}
+                size="large"
+                type="password"
+                placeholder="至少6位密码，区分大小写"
+              />
+            )}
           </FormItem>
           <FormItem>
             {getFieldDecorator('confirm', {
@@ -170,6 +128,7 @@ class Register extends Component {
               }]
             })(
               <Input
+                prefix={<Icon type="lock"/>}
                 size="large"
                 type="password"
                 placeholder="确认密码"
@@ -177,9 +136,23 @@ class Register extends Component {
             )}
           </FormItem>
           <FormItem>
-            <Button size="large" type="primary" htmlType="submit">注册</Button>
+            <Checkbox onChange={this.agreeCheckChange}>同意并接受<Link to="/about/serve">《服务条款》</Link></Checkbox>
           </FormItem>
-          <Link to="/user/login">使用已有账户登录</Link>
+          <Row>
+            <Col span="12">
+              <Button
+                disabled={!this.state.agreeCheck}
+                className="block-btn"
+                size="large"
+                type="primary"
+                htmlType="submit">
+                注册
+              </Button>
+            </Col>
+            <Col span="12" style={{textAlign: 'center', lineHeight: '32px'}}>
+              <Link to="/user/login">使用已有账户登录</Link>
+            </Col>
+          </Row>
         </Form>
       </div>
     );

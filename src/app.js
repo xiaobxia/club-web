@@ -2,9 +2,7 @@ import React, {PureComponent} from 'react';
 import {HashRouter as Router, Route, Switch, Redirect} from 'react-router-dom';
 import 'antd/dist/antd.css';
 import './scss/index.scss';
-import AuthLayout from './layouts/AuthLayout'
-import BaseLayout from './layouts/BaseLayout'
-import PrivateRoute from 'localComponent/PrivateRoute'
+import routes from './router'
 
 console.log('app.js init');
 
@@ -15,8 +13,9 @@ class App extends PureComponent {
     return (
       <Router>
         <Switch>
-          <Route path="/user" component={AuthLayout}/>
-          <PrivateRoute path="/" component={BaseLayout}/>
+          {routes.map((item) => {
+            return (<Route exact key={item.path} path={item.path} component={item.component}/>);
+          })}
         </Switch>
       </Router>
     );

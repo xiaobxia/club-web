@@ -40,7 +40,6 @@ class Login extends PureComponent {
 
   render() {
     consoleRender('Login render');
-    // 渲染多次的原因是，自动填充了两次
     const locale = this.props.intl.formatMessage;
     return (
       <div className="login-wrap">
@@ -50,7 +49,7 @@ class Login extends PureComponent {
           <LoginForm onLoginHandler={this.loginHandler}>
             <Link to="/user/forgot">忘记密码</Link>
           </LoginForm>
-          <Link to="/user/register">去注册</Link>
+          <Link to="/user/register">没有账号？去免费注册</Link>
         </Card>
       </div>
     );
