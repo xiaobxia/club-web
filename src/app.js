@@ -2,7 +2,7 @@ import React, {PureComponent} from 'react';
 import {HashRouter as Router, Route, Switch, Redirect} from 'react-router-dom';
 import 'antd/dist/antd.css';
 import './scss/index.scss';
-import routes from './router'
+import {outherRoutes} from './router'
 
 console.log('app.js init');
 
@@ -13,7 +13,7 @@ class App extends PureComponent {
     return (
       <Router>
         <Switch>
-          {routes.map((item) => {
+          {outherRoutes.map((item) => {
             return (<Route exact key={item.path} path={item.path} component={item.component}/>);
           })}
         </Switch>

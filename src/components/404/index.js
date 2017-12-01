@@ -2,15 +2,18 @@
  * Created by xiaobxia on 2017/11/16.
  */
 import React, {PureComponent} from 'react'
-import {Alert} from 'antd';
+import {Button} from 'antd';
+import {Link} from 'react-router-dom';
 import {consoleRender} from 'localUtil/consoleLog'
-import img404 from '../../../static/404.png'
+import img404 from '../../assets/404.png'
 
 class Exception404 extends PureComponent {
   render() {
-    consoleRender('Exception404 render');
     return (
-      <img src={img404} alt=""/>
+      <div className="not-found-wrap">
+        <img src={img404} alt=""/>
+        <Button type="primary"><Link to="/">回到首页</Link></Button>
+      </div>
     );
   }
 }
