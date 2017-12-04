@@ -20,9 +20,8 @@ let getComponent = (component) => {
   }
 };
 
-export const baseRoutes = [
-];
-export const outherRoutes = [
+export const baseRoutes = [];
+export const otherRoutes = [
   {
     name: 'Login',
     path: '/user/login',
@@ -42,10 +41,10 @@ export const outherRoutes = [
     name: 'UserActive',
     path: '/user/active',
     component: getComponent(UserActive)
-  },
-  {
-    name: '404',
-    path: '',
-    component: getComponent(Route404)
   }
 ];
+export const notMatch = {
+  name: '404',
+  path: '',
+  component: getComponent(Route404)
+};
