@@ -8,7 +8,6 @@ import {appActions} from 'localStore/actions'
 import {baseRoutes} from '../../router'
 import AppHeader from './header';
 import AppFooter from './footer';
-import AppAnnouncement from './announcement';
 
 
 class BaseLayout extends PureComponent {
@@ -46,13 +45,11 @@ class BaseLayout extends PureComponent {
             <AppHeader/>
           </Header>
           <Content>
-            <AppAnnouncement/>
-            <Breadcrumb style={{margin: '16px 0'}}>
-              <Breadcrumb.Item>Home</Breadcrumb.Item>
-              <Breadcrumb.Item>List</Breadcrumb.Item>
-              <Breadcrumb.Item>App</Breadcrumb.Item>
-            </Breadcrumb>
-            <div style={{background: '#fff', padding: 24, minHeight: 280}}>Content</div>
+            <Switch>
+              {baseRoutes.map((item) => {
+                return (<Route exact key={item.path} path={item.path} component={item.component}/>);
+              })}
+            </Switch>
           </Content>
           <Footer>
             <AppFooter/>

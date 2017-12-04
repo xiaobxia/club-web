@@ -15,10 +15,10 @@ class App extends PureComponent {
     return (
       <Router>
         <Switch>
-          <Route exact path='/' component={BaseLayout}/>
           {otherRoutes.map((item) => {
             return (<Route exact key={item.path} path={item.path} component={item.component}/>);
           })}
+          <Route exact path='/' component={BaseLayout}/>
           <Route exact path={notMatch.path} component={notMatch.component}/>
         </Switch>
       </Router>
