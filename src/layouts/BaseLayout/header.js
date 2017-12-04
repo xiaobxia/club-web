@@ -2,6 +2,7 @@
  * Created by xiaobxia on 2017/10/20.
  */
 import React, {PureComponent} from 'react'
+import {Link} from 'react-router-dom';
 import {Menu, Icon, Dropdown, Avatar, Input} from 'antd';
 const Search = Input.Search;
 
@@ -9,7 +10,7 @@ class AppHeader extends PureComponent {
   render() {
     return (
       <div className="app-header">
-        <div className="logo"/>
+        <div className="logo">logo</div>
         <Menu
           theme="light"
           mode="horizontal"
@@ -19,9 +20,14 @@ class AppHeader extends PureComponent {
           <Menu.Item key="2">nav 2</Menu.Item>
           <Menu.Item key="3">nav 3</Menu.Item>
         </Menu>
+        <div className="header-user-wrap">
+          <Link to="/user/login">登录</Link>
+          <span className="decollator">|</span>
+          <Link to="/user/register">注册</Link>
+        </div>
         <Search
           className="app-search"
-          placeholder="input search text"
+          placeholder="搜索关键字"
           onSearch={value => console.log(value)}
         />
       </div>

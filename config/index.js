@@ -10,9 +10,9 @@ module.exports = {
     assetsSubDirectory: '',
     // 解决打包时font的问题
     assetsPathInCss: '../../',
-    // assetsPublicPath: './',
+    assetsPublicPath: './',
     //放七牛加速，减少带宽占用
-    assetsPublicPath: 'http://ozuuc00xw.bkt.clouddn.com/',
+    // assetsPublicPath: 'http://ozuuc00xw.bkt.clouddn.com/',
     //打包就移除sourceMap
     productionSourceMap: false,
     // Gzip off by default as many popular static hosts such as

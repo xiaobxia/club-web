@@ -18,7 +18,7 @@
       height: 100%;
     }
     .logo {
-      display: inline-block;
+      float: left;
       width: 100px;
       height: 100%;
     }
@@ -29,8 +29,12 @@
       background-color: $header-background-color;
     }
     .app-search {
+      float: right;
+      margin: 0 50px;
       width: 200px;
-      vertical-align: top;
+    }
+    .header-user-wrap{
+      float: right;
     }
   }
   .ant-layout-content {
