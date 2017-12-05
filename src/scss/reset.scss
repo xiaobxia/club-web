@@ -3,6 +3,9 @@
     color: #fff;
     background-color: $theme-color;
     border-color: $theme-color;
+    a, a:active, a:hover {
+      color: #fff;
+    }
   }
   .ant-btn-primary:focus, .ant-btn-primary:hover {
     color: #fff;

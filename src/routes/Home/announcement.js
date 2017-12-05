@@ -2,7 +2,7 @@
  * Created by xiaobxia on 2017/12/4.
  */
 import React, {PureComponent} from 'react'
-import {Carousel, Alert} from 'antd';
+import {Carousel, Alert, Icon} from 'antd';
 
 class AppAnnouncement extends PureComponent {
   render() {
@@ -10,11 +10,14 @@ class AppAnnouncement extends PureComponent {
       <div className="announcement-wrap">
         <Alert
           message={
-            <Carousel dots={false} vertical>
-              <div>公告1</div>
-              <div>公告2</div>
-              <div>公告3</div>
-            </Carousel>
+            <div>
+              <Icon type="sound"/>
+              <Carousel dots={false} vertical autoplay={true} style={{marginLeft: '20px'}}>
+                <div>公告1</div>
+                <div>公告2</div>
+                <div>公告3</div>
+              </Carousel>
+            </div>
           }
           type="success"/>
       </div>

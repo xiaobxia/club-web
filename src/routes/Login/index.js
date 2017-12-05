@@ -6,7 +6,6 @@ import {Card, Alert} from 'antd';
 import {connect} from 'react-redux'
 import {withRouter, Link} from 'react-router-dom'
 import {bindActionCreators} from 'redux';
-import {injectIntl} from 'react-intl';
 import {consoleRender} from 'localUtil/consoleLog'
 import LoginForm from './form'
 import {appActions} from 'localStore/actions'
@@ -66,4 +65,4 @@ const mapDispatchToProps = dispatch => ({
   appActions: bindActionCreators(appActions, dispatch)
 });
 
-export default injectIntl(withRouter(connect(mapStateToProps, mapDispatchToProps)(Login)));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Login));

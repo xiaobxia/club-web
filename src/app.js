@@ -18,8 +18,8 @@ class App extends PureComponent {
           {otherRoutes.map((item) => {
             return (<Route exact key={item.path} path={item.path} component={item.component}/>);
           })}
-          <Route exact path='/' component={BaseLayout}/>
-          <Route exact path={notMatch.path} component={notMatch.component}/>
+          <Route path='/' component={BaseLayout}/>
+          <Route path={notMatch.path} component={notMatch.component}/>
         </Switch>
       </Router>
     );

@@ -3,7 +3,6 @@
  */
 import React, {PureComponent} from 'react'
 import {Icon, Button, Form, Input} from 'antd';
-import {injectIntl} from 'react-intl';
 import {consoleRender} from 'localUtil/consoleLog'
 const FormItem = Form.Item;
 class LoginForm extends PureComponent {
@@ -54,4 +53,4 @@ class LoginForm extends PureComponent {
   }
 }
 
-export default Form.create()(injectIntl(LoginForm));
+export default Form.create()(LoginForm);
