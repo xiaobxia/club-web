@@ -53,6 +53,11 @@ export const otherRoutes = [
     name: 'UserActive',
     path: '/user/active',
     component: getComponent(UserActive)
+  },
+  {
+    name: '404',
+    path: '/404',
+    component: getComponent(Route404)
   }
 ];
 export const notMatch = {
