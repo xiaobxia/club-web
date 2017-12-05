@@ -59,6 +59,23 @@
     color: #fff;
   }
 
+  .ant-pagination-item{
+    color: #fff;
+    a, a:active, a:hover {
+      color: #fff;
+    }
+  }
+
+  .ant-pagination-item-active:focus, .ant-pagination-item-active:hover {
+    background-color: $theme-color;
+    border-color: $theme-color;
+  }
+
+  .ant-pagination-item-active {
+    background-color: $theme-color;
+    border-color: $theme-color;
+  }
+
   a, a:active, a:hover {
     color: $theme-color;
   }
