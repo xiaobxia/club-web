@@ -3,7 +3,8 @@
  */
 import React, {PureComponent} from 'react'
 import {Row, Col, Tabs} from 'antd';
-import {Link} from 'react-router-dom';
+import {Link, withRouter} from 'react-router-dom';
+import qs from 'qs';
 import AppAnnouncement from './announcement';
 import ListWrap from './listWrap';
 import Advertising from 'localComponent/Advertising';
@@ -12,18 +13,38 @@ const TabPane = Tabs.TabPane;
 
 //PureComponent浅比较
 class AppHome extends PureComponent {
+
+  tabChangeHandler = (key) => {
+    console.log(key);
+    this.props.history.push('/?type=' + key);
+  };
+
+  renderTabs = () => {
+    const tabList = [
+      {type: 'recommend', name: '推荐'},
+      {type: 'hot', name: '热门'},
+      {type: 'new', name: '最新'}
+    ];
+    const query = qs.parse(this.props.location.search.slice(1));
+    return (
+      <Tabs defaultActiveKey={query.type || 'recommend'} onChange={this.tabChangeHandler}>
+        {tabList.map((item) => {
+          return (<TabPane tab={item.name} key={item.type}/>);
+        })}
+      </Tabs>
+    );
+  };
+
+
   render() {
+    console.log(this.props.location.search)
     return (
       <div className="home-wrap">
         <Row>
           <Col span="16">
             <div className="main-content-wrap">
               <AppAnnouncement/>
-              <Tabs>
-                <TabPane tab="推荐" key="1"/>
-                <TabPane tab="热门" key="2"/>
-                <TabPane tab="最新" key="3"/>
-              </Tabs>
+              {this.renderTabs()}
               <ListWrap/>
             </div>
           </Col>
@@ -38,4 +59,4 @@ class AppHome extends PureComponent {
   }
 }
 
-export default AppHome;
+export default withRouter(AppHome);

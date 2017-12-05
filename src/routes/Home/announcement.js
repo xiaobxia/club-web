@@ -12,7 +12,7 @@ class AppAnnouncement extends PureComponent {
           message={
             <div>
               <Icon type="sound"/>
-              <Carousel dots={false} vertical autoplay={true} style={{marginLeft: '20px'}}>
+              <Carousel autoplaySpeed={5000} dots={false} vertical autoplay={true} style={{marginLeft: '20px'}}>
                 <div>公告1</div>
                 <div>公告2</div>
                 <div>公告3</div>

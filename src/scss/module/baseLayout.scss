@@ -1,3 +1,18 @@
+#app {
+  .ant-menu-horizontal > .ant-menu-item, .ant-menu-horizontal > .ant-menu-submenu {
+    border-bottom: none;
+    a {
+      color: $grey-light;
+    }
+  }
+  .ant-menu-horizontal > .ant-menu-item:hover, .ant-menu-horizontal > .ant-menu-submenu:hover, .ant-menu-horizontal > .ant-menu-item-active, .ant-menu-horizontal > .ant-menu-submenu-active, .ant-menu-horizontal > .ant-menu-item-open, .ant-menu-horizontal > .ant-menu-submenu-open, .ant-menu-horizontal > .ant-menu-item-selected, .ant-menu-horizontal > .ant-menu-submenu-selected {
+    border-bottom: none;
+    a {
+      color: $theme-color-light;
+    }
+  }
+}
+
 .app-main {
   .ant-layout {
     background-color: $background-color;

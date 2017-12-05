@@ -2,24 +2,47 @@
  * Created by xiaobxia on 2017/10/20.
  */
 import React, {PureComponent} from 'react'
-import {Link} from 'react-router-dom';
+import {Link, withRouter} from 'react-router-dom';
 import {Menu, Icon, Dropdown, Avatar, Input} from 'antd';
+
 const Search = Input.Search;
 
 class AppHeader extends PureComponent {
+  renderMenuList = () => {
+    console.log(this.props.location);
+    const itemList = [
+      {path: '/', name: '首页'},
+      {path: '/events', name: '活动'},
+      {path: '/friend', name: '交友'},
+      {path: '/game', name: '游戏'},
+      {path: '/recruitment', name: '招聘'},
+      {path: '/business', name: '广告投放'}
+    ];
+    return (
+      <Menu
+        className="app-menu"
+        theme="light"
+        mode="horizontal"
+        defaultSelectedKeys={[this.props.location.pathname]}
+      >
+        {itemList.map((item, index) => {
+          return (
+            <Menu.Item key={item.path}>
+              <Link to={item.path}>{item.name}</Link>
+            </Menu.Item>
+          );
+        })}
+      </Menu>
+    );
+  };
+
   render() {
     return (
       <div className="app-header">
-        <Link to="/"><div className="logo">logo</div></Link>
-        <Menu
-          theme="light"
-          mode="horizontal"
-          defaultSelectedKeys={['2']}
-        >
-          <Menu.Item key="1">nav 1</Menu.Item>
-          <Menu.Item key="2">nav 2</Menu.Item>
-          <Menu.Item key="3">nav 3</Menu.Item>
-        </Menu>
+        <Link to="/">
+          <div className="logo">logo</div>
+        </Link>
+        {this.renderMenuList()}
         <div className="header-user-wrap">
           <Link to="/user/login">登录</Link>
           <span className="decollator">|</span>
@@ -36,4 +59,4 @@ class AppHeader extends PureComponent {
   }
 }
 
-export default AppHeader;
+export default withRouter(AppHeader);
