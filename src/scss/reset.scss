@@ -41,6 +41,24 @@
     color: $theme-color-light;
   }
 
+  .ant-tabs-nav .ant-tabs-tab-active {
+    color: $theme-color-light;
+    font-weight: 500;
+  }
+
+  .ant-tabs-ink-bar{
+    background: $theme-color-light;
+  }
+
+  .ant-tabs-nav .ant-tabs-tab:hover {
+    color: $theme-color-light;
+  }
+
+  ::selection {
+    background: $theme-color-light;
+    color: #fff;
+  }
+
   a, a:active, a:hover {
     color: $theme-color;
   }

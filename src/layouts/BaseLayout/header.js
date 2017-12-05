@@ -10,7 +10,7 @@ class AppHeader extends PureComponent {
   render() {
     return (
       <div className="app-header">
-        <div className="logo">logo</div>
+        <Link to="/"><div className="logo">logo</div></Link>
         <Menu
           theme="light"
           mode="horizontal"
@@ -25,11 +25,12 @@ class AppHeader extends PureComponent {
           <span className="decollator">|</span>
           <Link to="/user/register">注册</Link>
         </div>
-        <Search
-          className="app-search"
-          placeholder="搜索关键字"
-          onSearch={value => console.log(value)}
-        />
+        <div className="header-search-wrap">
+          <Search
+            placeholder="搜索关键字"
+            onSearch={value => console.log(value)}
+          />
+        </div>
       </div>
     );
   }

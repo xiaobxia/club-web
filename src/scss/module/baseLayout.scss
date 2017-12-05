@@ -31,12 +31,12 @@
       line-height: $header-height;
       background-color: $header-background-color;
     }
-    .app-search {
+    .header-search-wrap {
       float: right;
       margin: 0 50px;
       width: 200px;
     }
-    .header-user-wrap{
+    .header-user-wrap {
       float: right;
     }
   }
@@ -47,11 +47,11 @@
     width: 1000px;
     min-height: 900px;
 
-    .main-content-wrap{
+    .main-content-wrap {
       min-height: 500px;
     }
 
-    .main-side-wrap{
+    .main-side-wrap {
       margin-left: 20px;
       min-height: 500px;
     }
