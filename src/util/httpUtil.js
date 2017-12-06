@@ -1,6 +1,6 @@
 import axios from 'axios';
 import qs from 'qs';
-const basePath = '/your-business/';
+const basePath = '/clubWeb/';
 function makeUrl(url) {
   if (url.startsWith('/') || url.startsWith('http://') || url.startsWith('https://')) {
     return url;
