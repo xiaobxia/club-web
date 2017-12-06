@@ -91,7 +91,7 @@ class Register extends Component {
                 required: true, message: '请输入用户名！'
               }]
             })(
-              <Input prefix={<Icon type="user"/>} size="large" placeholder="用户名"/>
+              <Input prefix={<Icon type="user"/>} placeholder="用户名"/>
             )}
           </FormItem>
           <FormItem>
@@ -102,7 +102,7 @@ class Register extends Component {
                 type: 'email', message: '邮箱地址格式错误！'
               }]
             })(
-              <Input prefix={<Icon type="mail"/>} size="large" placeholder="邮箱"/>
+              <Input prefix={<Icon type="mail"/>} placeholder="邮箱"/>
             )}
           </FormItem>
           <FormItem help={this.state.help}>
@@ -113,7 +113,6 @@ class Register extends Component {
             })(
               <Input
                 prefix={<Icon type="lock"/>}
-                size="large"
                 type="password"
                 placeholder="至少6位密码，区分大小写"
               />
@@ -129,7 +128,6 @@ class Register extends Component {
             })(
               <Input
                 prefix={<Icon type="lock"/>}
-                size="large"
                 type="password"
                 placeholder="确认密码"
               />
@@ -143,7 +141,6 @@ class Register extends Component {
               <Button
                 disabled={!this.state.agreeCheck}
                 className="block-btn"
-                size="large"
                 type="primary"
                 htmlType="submit">
                 注册

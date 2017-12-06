@@ -1,4 +1,9 @@
 #app{
+  .ant-btn-primary.disabled, .ant-btn-primary[disabled], .ant-btn-primary.disabled:hover, .ant-btn-primary[disabled]:hover, .ant-btn-primary.disabled:focus, .ant-btn-primary[disabled]:focus, .ant-btn-primary.disabled:active, .ant-btn-primary[disabled]:active, .ant-btn-primary.disabled.active, .ant-btn-primary[disabled].active {
+    color: rgba(0, 0, 0, 0.25);
+    background-color: #f5f5f5;
+    border-color: #d9d9d9;
+  }
   .ant-btn-primary {
     color: #fff;
     background-color: $theme-color;
@@ -26,8 +31,8 @@
   }
 
   .ant-checkbox-checked .ant-checkbox-inner, .ant-checkbox-indeterminate .ant-checkbox-inner {
-    background-color: $theme-color-light;
-    border-color: $theme-color-light;
+    background-color: $theme-color;
+    border-color: $theme-color;
   }
 
   .ant-checkbox-wrapper:hover .ant-checkbox-inner, .ant-checkbox:hover .ant-checkbox-inner, .ant-checkbox-input:focus + .ant-checkbox-inner {
@@ -38,24 +43,24 @@
   }
   .ant-menu-horizontal > .ant-menu-item:hover, .ant-menu-horizontal > .ant-menu-submenu:hover, .ant-menu-horizontal > .ant-menu-item-active, .ant-menu-horizontal > .ant-menu-submenu-active, .ant-menu-horizontal > .ant-menu-item-open, .ant-menu-horizontal > .ant-menu-submenu-open, .ant-menu-horizontal > .ant-menu-item-selected, .ant-menu-horizontal > .ant-menu-submenu-selected{
     border-bottom: none;
-    color: $theme-color-light;
+    color: $theme-color;
   }
 
   .ant-tabs-nav .ant-tabs-tab-active {
-    color: $theme-color-light;
+    color: $theme-color;
     font-weight: 500;
   }
 
   .ant-tabs-ink-bar{
-    background: $theme-color-light;
+    background: $theme-color;
   }
 
   .ant-tabs-nav .ant-tabs-tab:hover {
-    color: $theme-color-light;
+    color: $theme-color;
   }
 
   ::selection {
-    background: $theme-color-light;
+    background: $theme-color;
     color: #fff;
   }
 

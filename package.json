@@ -1,7 +1,7 @@
 {
-  "name": "react-cli",
-  "version": "1.0.0",
-  "description": "A react.js project",
+  "name": "club-web",
+  "version": "0.0.0",
+  "description": "club-web",
   "author": "xiaobxia",
   "private": true,
   "scripts": {

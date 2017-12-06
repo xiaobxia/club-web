@@ -15,7 +15,7 @@ class AppHeader extends PureComponent {
       {path: '/events', name: '活动'},
       {path: '/friend', name: '交友'},
       {path: '/game', name: '游戏'},
-      {path: '/recruitment', name: '招聘'},
+      {path: '/recruitment', name: '兼职'},
       {path: '/business', name: '广告投放'}
     ];
     return (
@@ -25,7 +25,7 @@ class AppHeader extends PureComponent {
         mode="horizontal"
         defaultSelectedKeys={[this.props.location.pathname]}
       >
-        {itemList.map((item, index) => {
+        {itemList.map((item) => {
           return (
             <Menu.Item key={item.path}>
               <Link to={item.path}>{item.name}</Link>
@@ -50,6 +50,7 @@ class AppHeader extends PureComponent {
         </div>
         <div className="header-search-wrap">
           <Search
+            size="small"
             placeholder="搜索关键字"
             onSearch={value => console.log(value)}
           />
