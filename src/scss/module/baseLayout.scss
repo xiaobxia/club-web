@@ -1,14 +1,25 @@
 #app {
   .ant-menu-horizontal > .ant-menu-item, .ant-menu-horizontal > .ant-menu-submenu {
+    padding: 0;
     border-bottom: none;
-    a {
-      color: $grey-light;
+    .link-like {
+      display: inline-block;
+      padding: 6px 13px;
+      border-radius: 3px;
+      line-height: normal;
+      color: $text-color;
     }
   }
   .ant-menu-horizontal > .ant-menu-item:hover, .ant-menu-horizontal > .ant-menu-submenu:hover, .ant-menu-horizontal > .ant-menu-item-active, .ant-menu-horizontal > .ant-menu-submenu-active, .ant-menu-horizontal > .ant-menu-item-open, .ant-menu-horizontal > .ant-menu-submenu-open, .ant-menu-horizontal > .ant-menu-item-selected, .ant-menu-horizontal > .ant-menu-submenu-selected {
     border-bottom: none;
-    a {
+    .link-like {
+      font-weight: 600;
       color: $theme-color;
+    }
+  }
+  .ant-menu-horizontal > .ant-menu-item:hover {
+    .link-like {
+      background-color: #F3F3F3;
     }
   }
 }
@@ -53,6 +64,24 @@
     }
     .header-user-wrap {
       float: right;
+      .link-like {
+        display: inline-block;
+        padding: 6px 13px;
+        border-radius: 3px;
+        line-height: normal;
+        color: $text-color;
+        &:hover {
+          background-color: #F3F3F3;
+        }
+        .anticon{
+          font-size: 16px;
+        }
+      }
+    }
+    .ant-avatar {
+      margin-left: 20px;
+      vertical-align: middle;
+      cursor: pointer;
     }
   }
   .ant-layout-content {

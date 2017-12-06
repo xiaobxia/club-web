@@ -26,11 +26,6 @@ export const baseRoutes = [
     name: 'AppHome',
     path: '/',
     component: getComponent(AppHome)
-  },
-  {
-    name: 'AppHomeClassify',
-    path: '/welcome/:classify',
-    component: getComponent(AppHome)
   }
 ];
 export const otherRoutes = [

@@ -3,7 +3,8 @@
  */
 import React, {PureComponent} from 'react'
 import {Link, withRouter} from 'react-router-dom';
-import {Menu, Icon, Dropdown, Avatar, Input} from 'antd';
+import {Menu, Input} from 'antd';
+import UserWrap from './userWrap';
 
 const Search = Input.Search;
 
@@ -28,7 +29,7 @@ class AppHeader extends PureComponent {
         {itemList.map((item) => {
           return (
             <Menu.Item key={item.path}>
-              <Link to={item.path}>{item.name}</Link>
+              <Link className="link-like" to={item.path}>{item.name}</Link>
             </Menu.Item>
           );
         })}
@@ -37,20 +38,22 @@ class AppHeader extends PureComponent {
   };
 
   render() {
+    const admin = true;
     return (
       <div className="app-header">
         <Link to="/">
           <div className="logo">logo</div>
         </Link>
         {this.renderMenuList()}
-        <div className="header-user-wrap">
-          <Link to="/user/login">登录</Link>
-          <span className="decollator">|</span>
-          <Link to="/user/register">注册</Link>
-        </div>
+        {admin ? (<UserWrap/>) : (
+          <div className="header-user-wrap">
+            <Link to="/user/login">登录</Link>
+            <span className="decollator">|</span>
+            <Link to="/user/register">注册</Link>
+          </div>
+        )}
         <div className="header-search-wrap">
           <Search
-            size="small"
             placeholder="搜索关键字"
             onSearch={value => console.log(value)}
           />
