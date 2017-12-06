@@ -16,8 +16,8 @@ class AppAnnouncement extends PureComponent {
       this.setState({
         broadcastList: data.list
       });
-      console.log(data);
-    })
+      console.log(data)
+    });
   }
 
   renderBroadcastList = () => {

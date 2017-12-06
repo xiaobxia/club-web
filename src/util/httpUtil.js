@@ -16,7 +16,7 @@ function addTimestamp(url) {
   } else {
     hook = index + 1 === url.length ? '' : '&';
   }
-  return `${url}${hook}timestamp=${new Date().getTime()}`;
+  return `${url}${hook}_t=${new Date().getTime()}`;
 }
 const Http = {
   get (url, options) {
