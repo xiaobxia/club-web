@@ -9,7 +9,6 @@ import {baseRoutes, notMatch} from '../../router'
 import AppHeader from './header';
 import AppFooter from './footer';
 
-
 class BaseLayout extends PureComponent {
   constructor() {
     super();
@@ -20,6 +19,10 @@ class BaseLayout extends PureComponent {
   };
 
   componentWillMount() {
+    //只有在刷新时才check
+    if (!this.props.app.loginUser.isLogin) {
+      this.props.appActions.appCheckLogin();
+    }
   }
 
   //生命周期mount

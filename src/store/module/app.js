@@ -23,6 +23,7 @@ export const appActions = {
       dispatch({type: APP_CHECK_LOGIN});
       return http.get('sys/auth/checkLogin').then((data) => {
         dispatch({type: APP_CHECK_LOGIN_SUC, loginUser: data});
+        return data;
       });
     };
   },
@@ -42,13 +43,15 @@ export const appActions = {
       //内部登录，减少状态变化
       return http.post('sys/auth/login', {account: user, password: md5(password)}).then((data) => {
         dispatch({type: APP_INSET_LOGIN_SUC, loginUser: data});
+        return data;
       });
     };
   },
   appLogout() {
     return (dispatch, getState) => {
-      return http.get('sys/auth/logout').then((res) => {
+      return http.get('sys/auth/logout').then((data) => {
         dispatch({type: APP_LOGOUT_SUC});
+        return data;
       });
     };
   },

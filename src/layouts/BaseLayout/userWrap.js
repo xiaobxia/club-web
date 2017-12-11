@@ -3,22 +3,34 @@
  */
 import React, {PureComponent} from 'react'
 import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import {appActions} from 'localStore/actions';
 import {Menu, Icon, Dropdown, Avatar, Button, Badge, Popover} from 'antd';
 import NoticeList from './list'
 
 //PureComponent浅比较
 class UserWrap extends PureComponent {
+  logout = () => {
+    console.log('in')
+    const {appActions} = this.props;
+    appActions.appLogout().then(() => {
+      window.location.reload();
+    });
+  };
+
   renderUserMenu = () => {
+    const userName = this.props.app.loginUser.userName;
+    const iconStyle = {marginRight: 10};
     return (
       <Menu>
-        <Menu.Item>
-          <a target="_blank" rel="noopener noreferrer" href="http://www.alipay.com/">1st menu item</a>
-        </Menu.Item>
-        <Menu.Item>
-          <a target="_blank" rel="noopener noreferrer" href="http://www.taobao.com/">2nd menu item</a>
-        </Menu.Item>
-        <Menu.Item>
-          <a target="_blank" rel="noopener noreferrer" href="http://www.tmall.com/">3rd menu item</a>
+        <Menu.Item><Link to={'/account/' + userName}><Icon type="user" style={iconStyle}/>个人中心</Link></Menu.Item>
+        <Menu.Item><Icon type="setting" style={iconStyle}/>设置</Menu.Item>
+        <Menu.Divider />
+        <Menu.Item key="logout">
+          <div onClick={this.logout}>
+            <Icon type="logout" style={iconStyle}/>退出登录
+          </div>
         </Menu.Item>
       </Menu>
     );
@@ -33,7 +45,7 @@ class UserWrap extends PureComponent {
   };
 
   getNotificationBox() {
-    const { children, loading, locale } = this.props;
+    const {children, loading, locale} = this.props;
     if (!children) {
       return null;
     }
@@ -81,4 +93,15 @@ class UserWrap extends PureComponent {
   }
 }
 
-export default UserWrap;
+
+const mapStateToProps = state => {
+  return {
+    app: state.app
+  }
+};
+const mapDispatchToProps = dispatch => ({
+  //action在此为引入
+  appActions: bindActionCreators(appActions, dispatch)
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserWrap);

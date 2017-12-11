@@ -31,7 +31,7 @@ class Login extends PureComponent {
           errorMsg: data.msg
         });
       } else {
-        this.props.history.push('/dashboard');
+        this.props.history.push('/');
       }
     });
   };
@@ -41,7 +41,7 @@ class Login extends PureComponent {
       <div className="login-wrap">
         <div className="logo">登录</div>
         {this.state.showError && (<Alert message={this.state.errorMsg} type="error" closable onClose={this.onClose}/>)}
-        <Card noHovering={true}>
+        <Card hoverable={false}>
           <LoginForm onLoginHandler={this.loginHandler}>
             <Link to="/user/forgot">忘记密码</Link>
           </LoginForm>

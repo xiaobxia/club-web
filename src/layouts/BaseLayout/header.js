@@ -2,8 +2,11 @@
  * Created by xiaobxia on 2017/10/20.
  */
 import React, {PureComponent} from 'react'
+import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux';
 import {Link, withRouter} from 'react-router-dom';
 import {Menu, Input} from 'antd';
+import {appActions} from 'localStore/actions'
 import UserWrap from './userWrap';
 
 const Search = Input.Search;
@@ -38,14 +41,14 @@ class AppHeader extends PureComponent {
   };
 
   render() {
-    const admin = true;
+    const isLogin = this.props.app.loginUser.isLogin;
     return (
       <div className="app-header">
         <Link to="/">
           <div className="logo">logo</div>
         </Link>
         {this.renderMenuList()}
-        {admin ? (<UserWrap/>) : (
+        {isLogin ? (<UserWrap/>) : (
           <div className="header-user-wrap">
             <Link to="/user/login">登录</Link>
             <span className="decollator">|</span>
@@ -63,4 +66,14 @@ class AppHeader extends PureComponent {
   }
 }
 
-export default withRouter(AppHeader);
+const mapStateToProps = state => {
+  return {
+    app: state.app
+  }
+};
+const mapDispatchToProps = dispatch => ({
+  //action在此为引入
+  appActions: bindActionCreators(appActions, dispatch)
+});
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AppHeader));
