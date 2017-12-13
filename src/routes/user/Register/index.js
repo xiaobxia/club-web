@@ -6,6 +6,7 @@ import {Link} from 'react-router-dom';
 import {Form, Input, Button, Row, Col, Icon, Checkbox} from 'antd';
 import md5 from 'md5';
 import http from 'localUtil/httpUtil';
+import './register.scss'
 
 const FormItem = Form.Item;
 

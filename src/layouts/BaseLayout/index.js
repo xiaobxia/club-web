@@ -8,6 +8,7 @@ import {appActions} from 'localStore/actions'
 import {baseRoutes, notMatch} from '../../router'
 import AppHeader from './header';
 import AppFooter from './footer';
+import './baseLayout.scss'
 
 class BaseLayout extends PureComponent {
   constructor() {

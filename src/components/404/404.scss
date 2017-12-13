@@ -1,0 +1,17 @@
+@import "../../scss/var";
+
+.not-found-wrap{
+  position: relative;
+  width: 600px;
+  margin: 120px auto;
+  text-align: center;
+  img{
+    width: 100%;
+    height: auto;
+  }
+  .ant-btn{
+    margin-top: 20px;
+    width: 160px;
+    height: 40px;
+  }
+}

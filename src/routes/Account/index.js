@@ -7,7 +7,9 @@ import {withRouter} from 'react-router-dom'
 class Account extends PureComponent {
   render() {
     return (
-      <div>
+      <div className="account-wrap">
+        <div className="base-info-wrap">
+        </div>
         account
         {this.props.match.params.name}
         {this.props.match.params.type}

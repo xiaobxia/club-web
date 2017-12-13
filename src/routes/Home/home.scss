@@ -1,0 +1,17 @@
+@import "../../scss/var";
+.announcement-wrap {
+  margin-bottom: 20px;
+  .ant-carousel .slick-slide {
+    font-size: 12px;
+    height: 20px;
+    line-height: 20px;
+    overflow: hidden;
+  }
+  .anticon-sound {
+    position: absolute;
+    top: 11px;
+  }
+  .ant-carousel {
+    margin-left: 30px;
+  }
+}

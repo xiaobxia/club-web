@@ -8,6 +8,7 @@ import {withRouter, Link} from 'react-router-dom'
 import {bindActionCreators} from 'redux';
 import LoginForm from './form'
 import {appActions} from 'localStore/actions'
+import './login.scss'
 
 class Login extends PureComponent {
   state = {

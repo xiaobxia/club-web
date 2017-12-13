@@ -8,6 +8,7 @@ import qs from 'qs';
 import AppAnnouncement from './announcement';
 import ListWrap from './listWrap';
 import Advertising from 'localComponent/Advertising';
+import './home.scss'
 
 const TabPane = Tabs.TabPane;
 

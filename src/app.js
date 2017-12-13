@@ -5,7 +5,6 @@ import './scss/index.scss';
 import {otherRoutes, notMatch} from './router';
 import BaseLayout from './layouts/BaseLayout';
 
-
 console.log('app.js init');
 
 //无状态组件
