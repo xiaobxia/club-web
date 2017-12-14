@@ -8,8 +8,8 @@ import qs from 'qs';
 import AppAnnouncement from './announcement';
 import ListWrap from './listWrap';
 import Advertising from 'localComponent/Advertising';
-import './home.scss'
-
+import aa from './home.scss'
+console.log(aa)
 const TabPane = Tabs.TabPane;
 
 //PureComponent浅比较

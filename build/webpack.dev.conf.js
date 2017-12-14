@@ -23,7 +23,9 @@ module.exports = merge(baseWebpackConfig, {
       'process.env': config.dev.env
     }),
     new ExtractTextPlugin({
-      filename: utils.assetsPath('css/[name].[contenthash].css')
+      filename: utils.assetsPath('css/[name].[contenthash].css'),
+      //解决懒加载的css问题,虽然还是打包进了一个中
+      allChunks: true
     }),
     // https://github.com/glenjamin/webpack-hot-middleware#installation--usage
     new webpack.HotModuleReplacementPlugin(),
