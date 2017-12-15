@@ -5,7 +5,7 @@ import {bindActionCreators} from 'redux';
 import {Icon, Layout, Menu, Breadcrumb, Input, notification} from 'antd';
 const {Header, Content, Footer} = Layout;
 import {appActions} from 'localStore/actions'
-import {baseRoutes, notMatch} from '../../router'
+import {baseRoutes, shouldLoginRoutes, notMatch} from '../../router'
 import AppHeader from './header';
 import AppFooter from './footer';
 import './baseLayout.scss'
@@ -50,6 +50,9 @@ class BaseLayout extends PureComponent {
           </Header>
           <Content>
             <Switch>
+              {shouldLoginRoutes.map((item) => {
+                return (<Route exact key={item.path} path={item.path} component={item.component}/>);
+              })}
               {baseRoutes.map((item) => {
                 return (<Route exact key={item.path} path={item.path} component={item.component}/>);
               })}

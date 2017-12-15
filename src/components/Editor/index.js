@@ -2,10 +2,8 @@
  * Created by xiaobxia on 2017/12/5.
  */
 import React, {PureComponent} from 'react';
-import {Button} from 'antd'
 import Simditor from 'simditor';
 import jQuery from 'jquery';
-import 'simditor/styles/simditor.css';
 // import '../../../../node_modules/simditor-html/styles/simditor-html.css';
 // require( '../../../../node_modules/simditor-html/lib/simditor-html.js');
 
@@ -40,9 +38,6 @@ class AppEditor extends PureComponent {
     let val = this.props.val;
     return (
       <div>
-        <div style={{marginTop: 10, marginBottom: 10}}>
-          <Button onClick={this.handleSubmit} type="primary">保存</Button>
-        </div>
         <textarea
           className="form-control"
           ref={(div) => {

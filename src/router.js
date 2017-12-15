@@ -7,6 +7,7 @@ import RegisterResult from 'Bundle-loader?lazy!localRoutes/User/RegisterResult'
 import UserActive from 'Bundle-loader?lazy!localRoutes/User/Active'
 import AppHome from 'Bundle-loader?lazy!localRoutes/Home'
 import Account from 'Bundle-loader?lazy!localRoutes/Account'
+import Write from 'Bundle-loader?lazy!localRoutes/Write'
 
 //router4就得以这种方式懒加载
 //其实model不需要按需加载，因为本来就不应该太大，应该由组件自己维护状态
@@ -21,6 +22,14 @@ let getComponent = (component) => {
     );
   }
 };
+
+export const shouldLoginRoutes = [
+  {
+    name: 'Write',
+    path: '/write',
+    component: getComponent(Write)
+  }
+];
 
 export const baseRoutes = [
   {

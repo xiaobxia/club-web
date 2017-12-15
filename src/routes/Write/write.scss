@@ -1,0 +1,20 @@
+@import "../../scss/var";
+.bottom-bar-wrap{
+  z-index: 1000;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 0;
+  width: 100%;
+  height: $bottom-bar-height;
+  background-color: $header-background-color;
+  border-top: 1px solid $border-color;
+  line-height: $bottom-bar-height;
+  .send-bar{
+    position: relative;
+    margin: 0 auto;
+    width: $content-width;
+    text-align: right;
+  }
+}
+

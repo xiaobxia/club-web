@@ -44,7 +44,7 @@
     .app-header {
       position: relative;
       margin: 0 auto;
-      width: 1000px;
+      width: $content-width;
       height: 100%;
     }
     .logo {
@@ -89,7 +89,7 @@
     position: relative;
     margin: 60px auto;
     padding-top: 20px;
-    width: 1000px;
+    width: $content-width;
     min-height: 900px;
 
     .main-content-wrap {
