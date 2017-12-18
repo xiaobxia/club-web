@@ -38,7 +38,7 @@ class UserWrap extends PureComponent {
 
   renderBadge = () => {
     return (
-      <Badge dot>
+      <Badge dot className="header-bell-icon">
         <Icon type="bell"/>
       </Badge>
     );
@@ -74,9 +74,22 @@ class UserWrap extends PureComponent {
     );
   }
 
+  // renderWriteMenu = () => {
+  //   return (
+  //     <Menu>
+  //       <Menu.Item key="1">1st menu item</Menu.Item>
+  //       <Menu.Item key="2">2nd menu item</Menu.Item>
+  //       <Menu.Item key="3">3rd item</Menu.Item>
+  //     </Menu>
+  //   );
+  // };
+
   render() {
     return (
       <div className="header-user-wrap">
+        <Button type="primary" style={{marginRight: 20}}>
+          <Link to="/write">发帖</Link>
+        </Button>
         <Popover
           content={this.getNotificationBox()}
           placement="bottomRight"

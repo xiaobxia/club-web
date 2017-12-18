@@ -2,13 +2,23 @@
  * Created by xiaobxia on 2017/12/5.
  */
 import React, {PureComponent} from 'react';
+import PropTypes from 'prop-types';
+import {Button} from 'antd'
 import Simditor from 'simditor';
 import jQuery from 'jquery';
-// import '../../../../node_modules/simditor-html/styles/simditor-html.css';
-// require( '../../../../node_modules/simditor-html/lib/simditor-html.js');
 
 //PureComponent浅比较
 class AppEditor extends PureComponent {
+  state = {
+    sourceData: ''
+  };
+  static defaultProps = {
+    sourceData: ''
+  };
+  static propTypes = {
+    sourceData: PropTypes.string
+  };
+
   componentDidMount() {
     this.editor = new Simditor({
       textarea: jQuery(this.textbox),
@@ -21,6 +31,9 @@ class AppEditor extends PureComponent {
         leaveConfirm: '正在上传文件'
       }
     });
+    if (this.props.sourceData) {
+      this.editor.setValue(this.props.sourceData);
+    }
     this.editor.on('valuechanged', (e, src) => {
       // todo
     });
@@ -33,6 +46,24 @@ class AppEditor extends PureComponent {
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.sourceData !== this.state.sourceData) {
+      if (this.editor) {
+        this.editor.setValue(nextProps.sourceData);
+        this.setState({
+          sourceData: nextProps.sourceData
+        });
+      }
+    }
+  }
+
+  getValue = () => {
+    return this.editor.getValue();
+  };
+
+  setValue = (text) => {
+    return this.editor.setValue(text);
+  };
 
   render() {
     let val = this.props.val;
@@ -51,3 +82,4 @@ class AppEditor extends PureComponent {
 }
 
 export default AppEditor;
+

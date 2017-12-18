@@ -79,6 +79,15 @@
         }
       }
     }
+    .header-bell-icon{
+      padding: 6px 13px;
+      border-radius: 3px;
+      font-size: 20px;
+      cursor: pointer;
+      &:hover {
+        background-color: #F3F3F3;
+      }
+    }
     .ant-avatar {
       margin-left: 20px;
       vertical-align: middle;
@@ -90,7 +99,7 @@
     margin: 60px auto;
     padding-top: 20px;
     width: $content-width;
-    min-height: 900px;
+    min-height: 500px;
 
     .main-content-wrap {
       min-height: 500px;

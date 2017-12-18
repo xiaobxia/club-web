@@ -8,17 +8,32 @@ import qs from 'qs';
 import AppAnnouncement from './announcement';
 import ListWrap from './listWrap';
 import Advertising from 'localComponent/Advertising';
-import aa from './home.scss'
-console.log(aa)
+import './home.scss'
+import Http from 'localUtil/httpUtil';
+
 const TabPane = Tabs.TabPane;
 
 //PureComponent浅比较
 class AppHome extends PureComponent {
+  state = {
+    articleList: [],
+    page: {}
+  };
 
   tabChangeHandler = (key) => {
     console.log(key);
     this.props.history.push('/?type=' + key);
   };
+
+  componentWillMount() {
+    Http.get('articles').then((data) => {
+      this.setState({
+        articleList: data.list,
+        page: data.page
+      });
+      console.log(data)
+    });
+  }
 
   renderTabs = () => {
     const tabList = [
@@ -46,7 +61,10 @@ class AppHome extends PureComponent {
             <div className="main-content-wrap">
               <AppAnnouncement/>
               {this.renderTabs()}
-              <ListWrap/>
+              <ListWrap
+                dataSource={this.state.articleList}
+                page={this.state.page}
+              />
             </div>
           </Col>
           <Col span="8">

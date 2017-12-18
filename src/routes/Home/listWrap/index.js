@@ -7,25 +7,6 @@ import {List, Avatar, Icon} from 'antd';
 //PureComponent浅比较
 class ListWrap extends PureComponent {
   render() {
-    const listData = [];
-    for (let i = 0; i < 5; i++) {
-      listData.push({
-        href: 'http://ant.design',
-        title: `ant design part ${i}`,
-        avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
-        description: 'Ant Design, a design language for background applications, is refined by Ant UED Team.',
-        content: 'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.'
-      });
-    }
-
-    const pagination = {
-      pageSize: 10,
-      current: 1,
-      total: listData.length,
-      onChange: () => {
-      }
-    };
-
     const IconText = ({type, text}) => {
       return (<span><Icon type={type} style={{marginRight: 8}}/>{text}</span>);
     };
@@ -33,8 +14,8 @@ class ListWrap extends PureComponent {
       <List
         itemLayout="vertical"
         size="large"
-        pagination={pagination}
-        dataSource={listData}
+        pagination={this.props.page}
+        dataSource={this.props.dataSource}
         renderItem={item => (
           <List.Item
             key={item.title}
