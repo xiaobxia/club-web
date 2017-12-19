@@ -23,6 +23,10 @@ class Account extends PureComponent {
     });
   }
 
+  updateIntroduce = () => {
+
+  };
+
   showIntroduceEdit = () => {
     this.setState({
       ifEdit: true
@@ -37,15 +41,13 @@ class Account extends PureComponent {
 
   renderCard = () => {
     const ifEdit = this.state.ifEdit;
+    const editForm = (
+      <div>sadasf</div>
+    );
     return (
       <div>
-        <Input size="large" placeholder="large size"/>
-        <div className="btn-wrap">
-          <Button style={{marginRight: 10}} onClick={this.hideIntroduceEdit}>取消</Button>
-          <Button type="primary">保存</Button>
-        </div>
+        {ifEdit ? editForm : <p>jijasnd</p>}
       </div>
-
     );
   };
 
@@ -68,7 +70,8 @@ class Account extends PureComponent {
                 title="个人简介"
                 bordered={false}
                 extra={
-                  !ifEdit ? <span className="edit-btn"><Icon type="edit" style={{marginRight: 10}}/>编辑</span> : null
+                  !ifEdit ? <span className="edit-btn" onClick={this.showIntroduceEdit}><Icon type="edit"
+                                                                                              style={{marginRight: 10}}/>编辑</span> : null
                 }
                 className="introduce-card"
               >
