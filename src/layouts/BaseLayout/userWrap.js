@@ -100,7 +100,7 @@ class UserWrap extends PureComponent {
           {this.renderBadge()}
         </Popover>
         <Dropdown overlay={this.renderUserMenu()} placement="bottomCenter">
-          {loginUser.avatar ? <Avatar src={loginUser.avatar}/> : <Avatar shape="circle" icon="user"/>}
+          {loginUser.avatar ? <Avatar shape="circle" src={loginUser.avatar}/> : <Avatar shape="circle" src='/user.png'/>}
         </Dropdown>
       </div>
     );
