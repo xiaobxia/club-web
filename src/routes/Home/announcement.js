@@ -14,7 +14,7 @@ class AppAnnouncement extends PureComponent {
   componentWillMount() {
     Http.get('broadcasts').then((data) => {
       this.setState({
-        broadcastList: data.list
+        broadcastList: data.data.list
       });
       console.log(data)
     });

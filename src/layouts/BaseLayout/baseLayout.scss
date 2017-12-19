@@ -1,4 +1,5 @@
 @import "../../scss/var";
+
 #app {
   .ant-menu-horizontal > .ant-menu-item, .ant-menu-horizontal > .ant-menu-submenu {
     padding: 0;
@@ -74,12 +75,12 @@
         &:hover {
           background-color: #F3F3F3;
         }
-        .anticon{
+        .anticon {
           font-size: 16px;
         }
       }
     }
-    .header-bell-icon{
+    .header-bell-icon {
       padding: 6px 13px;
       border-radius: 3px;
       font-size: 20px;
@@ -96,10 +97,15 @@
   }
   .ant-layout-content {
     position: relative;
-    margin: 60px auto;
-    padding-top: 20px;
-    width: $content-width;
+    margin: 60px 0;
     min-height: 500px;
+
+    .content-view{
+      position: relative;
+      margin: 0 auto;
+      padding-top: 20px;
+      width: $content-width;
+    }
 
     .main-content-wrap {
       min-height: 500px;

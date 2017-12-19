@@ -12,48 +12,44 @@ import store from './store';
 import App from './app'
 
 //http拦截
-axios.interceptors.request.use(function (config) {
-  Nprogress.start();
-  return config;
-}, function (error) {
-  return Promise.reject(error);
-});
-axios.interceptors.response.use(function (response) {
-  Nprogress.done();
-  let data = response.data;
-  if (response.status === 0) {
-    console.warn('[HTTP status=0]');
-    return response;
-  } else {
-    //200
-    if (data.status !== 0) {
-      //有错误
-      switch (data.status) {
-        case 'USER_SESSION_TIMEOUT':
-          store.dispatch({type: 'APP_SHOW_GLOB_LOGIN'});
-          break;
-      }
-    }
-    return response;
-  }
-}, function (error) {
-  Nprogress.done();
-  console.log('http in error');
-  let response = error.response;
-  const {errorCode, errorMessage} = response.data || {};
-  let errorMsg = 'Server Internal Error. Please contact Administrator!';
-  if (errorMessage) {
-    errorMsg = `${errorMessage}`;
-  }
-  console.log(errorCode, errorMsg);
-  const msg = `${response.status} ${response.statusText}; \r\n${errorMsg}`;
-  Modal.error({
-    title: 'This is an error message',
-    content: msg
-  });
-  // Do something with response error
-  return Promise.reject(error);
-});
+// axios.interceptors.request.use(function (config) {
+//   Nprogress.start();
+//   return config;
+// }, function (error) {
+//   return Promise.reject(error);
+// });
+// axios.interceptors.response.use(function (response) {
+//   Nprogress.done();
+//   let data = response.data;
+//   console.log(response)
+//   if (response.status === 0) {
+//     console.warn('[HTTP status=0]');
+//     return response;
+//   } else {
+//     //200
+//     if (data.status !== 0) {
+//       //有错误
+//     }
+//     return response;
+//   }
+// }, function (error) {
+//   Nprogress.done();
+//   console.log('http in error');
+//   let response = error.response;
+//   const {errorCode, errorMessage} = response.data || {};
+//   let errorMsg = 'Server Internal Error. Please contact Administrator!';
+//   if (errorMessage) {
+//     errorMsg = `${errorMessage}`;
+//   }
+//   console.log(errorCode, errorMsg);
+//   const msg = `${response.status} ${response.statusText}; \r\n${errorMsg}`;
+//   Modal.error({
+//     title: 'This is an error message',
+//     content: msg
+//   });
+//   // Do something with response error
+//   return Promise.reject(error);
+// });
 
 //渲染
 ReactDOM.render(

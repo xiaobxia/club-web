@@ -26,13 +26,13 @@ class AppHome extends PureComponent {
   };
 
   componentWillMount() {
-    Http.get('articles').then((data) => {
-      this.setState({
-        articleList: data.list,
-        page: data.page
-      });
-      console.log(data)
-    });
+    // Http.get('articles').then((data) => {
+    //   this.setState({
+    //     articleList: data.list,
+    //     page: data.page
+    //   });
+    //   console.log(data)
+    // });
   }
 
   renderTabs = () => {
@@ -55,7 +55,7 @@ class AppHome extends PureComponent {
   render() {
     console.log(this.props.location.search)
     return (
-      <div className="home-wrap">
+      <div className="home-wrap content-view">
         <Row>
           <Col span="16">
             <div className="main-content-wrap">

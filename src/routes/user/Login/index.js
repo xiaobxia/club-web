@@ -26,10 +26,10 @@ class Login extends PureComponent {
   loginHandler = (formData) => {
     const {appActions} = this.props;
     appActions.appLogin(formData).then((data) => {
-      if (data.login === false && data.msg) {
+      if (data.status !== 0 && data.message) {
         this.setState({
           showError: true,
-          errorMsg: data.msg
+          errorMsg: data.message
         });
       } else {
         this.props.history.push('/');
@@ -43,9 +43,7 @@ class Login extends PureComponent {
         <div className="logo">登录</div>
         {this.state.showError && (<Alert message={this.state.errorMsg} type="error" closable onClose={this.onClose}/>)}
         <Card hoverable={false}>
-          <LoginForm onLoginHandler={this.loginHandler}>
-            <Link to="/user/forgot">忘记密码</Link>
-          </LoginForm>
+          <LoginForm onLoginHandler={this.loginHandler}/>
           <Link to="/user/register">没有账号？去免费注册</Link>
         </Card>
       </div>

@@ -51,7 +51,7 @@ class Write extends PureComponent {
       );
     }
     return (
-      <div>
+      <div className="content-view">
         <Form>
           <FormItem>
             {getFieldDecorator('title', {

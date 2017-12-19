@@ -2,7 +2,8 @@
  * Created by xiaobxia on 2017/11/13.
  */
 import React, {PureComponent} from 'react'
-import {Icon, Button, Form, Input} from 'antd';
+import {Icon, Button, Form, Input, Checkbox} from 'antd';
+import {Link} from 'react-router-dom'
 
 const FormItem = Form.Item;
 
@@ -14,40 +15,41 @@ class LoginForm extends PureComponent {
       },
       onLoginHandler
     } = this.props;
+    console.log(getFieldsValue())
     onLoginHandler(getFieldsValue());
   };
+
   render() {
     const {
       form: {
         getFieldDecorator
-      },
-      children
+      }
     } = this.props;
 
     return (
-        <Form className="login-form">
-          <FormItem>
-            {getFieldDecorator('user', {
-              rules: [{required: true, message: '请输入账户'}]
-            })(
-              <Input prefix={<Icon type="user" style={{fontSize: 13}}/>} placeholder="用户名/邮箱/手机号"/>
-            )}
-          </FormItem>
-          <FormItem>
-            {getFieldDecorator('password', {
-              rules: [{required: true, message: '请输入密码'}]
-            })(
-              <Input prefix={<Icon type="lock" style={{fontSize: 13}}/>} type="password" placeholder="密码"/>
-            )}
-          </FormItem>
-          {children}
-          <FormItem style={{marginTop: '20px'}}>
-            <Button style={{width: '100%'}} type="primary" htmlType="submit" className="login-form-button"
-                    onClick={this.loginHandler}>
-              登录
-            </Button>
-          </FormItem>
-        </Form>
+      <Form className="login-form">
+        <FormItem>
+          {getFieldDecorator('user', {
+            rules: [{required: true, message: '请输入账户'}]
+          })(
+            <Input prefix={<Icon type="user" style={{fontSize: 13}}/>} placeholder="用户名/邮箱/手机号"/>
+          )}
+        </FormItem>
+        <FormItem>
+          {getFieldDecorator('password', {
+            rules: [{required: true, message: '请输入密码'}]
+          })(
+            <Input prefix={<Icon type="lock" style={{fontSize: 13}}/>} type="password" placeholder="密码"/>
+          )}
+        </FormItem>
+        <Link to="/user/forgot">忘记密码</Link>
+        <FormItem style={{marginTop: '20px'}}>
+          <Button style={{width: '100%'}} type="primary" htmlType="submit" className="login-form-button"
+                  onClick={this.loginHandler}>
+            登录
+          </Button>
+        </FormItem>
+      </Form>
     );
   }
 }

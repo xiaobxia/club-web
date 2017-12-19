@@ -85,6 +85,7 @@ class UserWrap extends PureComponent {
   // };
 
   render() {
+    const loginUser = this.props.app.loginUser;
     return (
       <div className="header-user-wrap">
         <Button type="primary" style={{marginRight: 20}}>
@@ -99,7 +100,7 @@ class UserWrap extends PureComponent {
           {this.renderBadge()}
         </Popover>
         <Dropdown overlay={this.renderUserMenu()} placement="bottomCenter">
-          <Avatar shape="circle" icon="user"/>
+          {loginUser.avatar ? <Avatar src={loginUser.avatar}/> : <Avatar shape="circle" icon="user"/>}
         </Dropdown>
       </div>
     );

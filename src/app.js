@@ -4,11 +4,15 @@ import 'antd/dist/antd.css';
 import './scss/index.scss';
 import {otherRoutes, notMatch} from './router';
 import BaseLayout from './layouts/BaseLayout';
+import http from 'localUtil/httpUtil';
 
 console.log('app.js init');
 
 //无状态组件
 class App extends PureComponent {
+  componentDidMount() {
+    http.get('sys/auth/getDeviceId');
+  }
   render() {
     console.log('App render');
     return (
